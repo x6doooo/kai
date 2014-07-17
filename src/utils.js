@@ -2,16 +2,39 @@
 
     var utils = Kai.utils = {};
 
-    var a = 0;
-    var b = 0;
     var limit = 65535;
 
+    function createBaseArray() {
+        return [0, 0];
+    }
+
+    var cacheNums = {};
+
     utils.uniqID = function(key) {
-        key = key || '';
-        if (b++ == 65535) {
-            b = 0;
-            a += 1;
+
+        // undefined可以用作object的key, so 不做排除
+        var nums = cacheNums[key];
+        if (!nums) {
+            nums = cacheNums[key] = createBaseArray();
         }
-        return key + '-' + a + '-' + b;
+
+        var idx = 0;
+        var len = nums.length;
+        while(idx < len) {
+            if (++nums[idx] > limit) {
+                nums[idx] = 0;
+                idx++;
+            } else {
+                break;
+            }
+        }
+
+        var id = nums.join('-');
+        
+        if (key) {
+            id = key + '-' + id;
+        }
+
+        return id;
     };
 })();
