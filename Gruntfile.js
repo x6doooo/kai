@@ -1,11 +1,12 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        license: grunt.file.read('LICENSE-MIT'),
         concat: {
             options: {
                 stripBanners: true,
                 banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-                    '<%= grunt.template.today("yyyy-mm-dd") %> */\n'
+                    '<%= grunt.template.today("yyyy-mm-dd") %> */\n\n<%= license %>'
             },
             main: {
                 files: {
@@ -34,7 +35,7 @@ module.exports = function(grunt) {
                 sourceMap: true,
                 stripBanners: true,
                 banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-                    '<%= grunt.template.today("yyyy-mm-dd") %> */\n'
+                    '<%= grunt.template.today("yyyy-mm-dd") %> */\n\n<%= license %>'
             },
             main: {
                 files: {
