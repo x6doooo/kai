@@ -15,10 +15,14 @@ module.exports = function(grunt) {
                         '*.css'
                     ],*/
                     'dest/kai.src.js': [
-                        'src/core.js',
-                        'src/utils.js',
-                        'src/class.js',
-                        'src/ajax.js'
+                        'src/core.init.js',
+                        'src/core.class.js',
+                        'src/core.types.js',
+                        'src/core.each.js',
+                        'src/utils.uniqid.js',
+                        'src/utils.date.js',
+                        'src/datastructure.linkedlist.js',
+                        'src/web.ajax.js'
                     ]
                 }
             }
