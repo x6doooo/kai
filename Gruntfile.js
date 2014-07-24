@@ -20,7 +20,7 @@ module.exports = function(grunt) {
                         'src/core.types.js',
                         'src/core.each.js',
                         'src/utils.uniqid.js',
-                        'src/utils.date.js',
+                        'src/utils.time.js',
                         'src/datastructure.linkedlist.js',
                         'src/web.ajax.js'
                     ]
