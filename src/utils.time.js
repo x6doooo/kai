@@ -31,7 +31,6 @@
      *  t = Time(new Date());
      *  t.toString('yyyy-MM-dd HH:mm:ss Z'); //=> 2014-01-13 19:30:00 GMT+0800
      *  t.add('d', 1) //加1天
-     *  t.add('H')
      */
 
 
@@ -209,15 +208,30 @@
     Time.prototype.init.prototype = Time.prototype;
 
     // Class Methods
+    // return ms
     Time.offset = function(from, to) {
-        if (!from instanceof Time) {
+        if (!(from instanceof Time)) {
             from = Time(from);
         }
-        if (!to instanceof Time) {
+        if (!(to instanceof Time)) {
             to = Time(to);
         }
         return to._date - from._date;
     };
+
+    //TODO:
+    //ms2day
+    //formatOffset  差多少年 多少个月 多少天 多少小时
+    //  
+    //  eg：
+    //      2012年10月21日 13:15:00.000 -> 2015年11月3日 10:10:10.000
+    //  分解成：
+    //      1、2012年10月21日 13:15:00.000 -> 2015年10月21日 13:15:00.000 1年
+    //      2、2015年10月21日 13:15:00.000 -> 2015年11月3日 10:10:10.000
+    //
+    Time.day2ms = function(ms) {
+    };
+
 
     Time.month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     Time.week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
