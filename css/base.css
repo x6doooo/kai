@@ -150,62 +150,26 @@ pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%}
 .pr50{padding-right:50px;}
 .pr100{padding-right:100px;}
 
-/* page */
-.show{display:inline-block!important;}
-
-#filter-btn-working.active{
-    background-color: #51A351;
-    border-color: #0044cc #0044cc #002a80;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    color: white;
-    outline-color: white;
-    outline-style: none;
-    outline-width: 0px;
-    text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
+.word-break {
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
-#filter-btn-done.active{
-    background-color: #BD362F;
-    border-color: #bd362f #bd362f #802420;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);;
-    color: white;
-    outline-color: white;
-    outline-style: none;
-    outline-width: 0px;
-    text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
-}
+.cut-by-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+} 
+/* firefox * /
+@-moz-document url-prefix(){ #example{
+    .cut-by-ellipsis:after {content: "...";} 
+} }
 
-#tasktypenav a.active,
-#tasktypenav a.active:hover,
-#tasktypenav a.active:focus {
-    color: #555555;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-bottom-color: transparent;
-    cursor: default;
-}
+/* webkit */
+@media screen and (-webkit-min-device-pixel-ratio:0){ #example{} }
+/* opera */
+@media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) { #example{} }
+/* firefox * /
+@-moz-document url-prefix(){ #example{} }
 
-div.ui-datepicker{
-    font-size:12px;
-}
-
-#all-task-info th,#all-task-info td{text-align:center}
-
-.nav-list .icon-chevron-right{float:right;opacity:0.25}
-.nav-list .icon-chevron-right.icon-white{float:right;opacity:1}
-.table-condensed .tbb td {
-	padding: 4px 5px;
-	border: 0;
-	line-height: 30px;
-}
-
-.info-group .active{
-    background-color: #2f96b4;
-    border-color: #bd362f #bd362f #802420;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);;
-    color: white;
-    outline-color: white;
-    outline-style: none;
-    outline-width: 0px;
-    text-shadow: rgba(0, 0, 0, 0.247059) 0px -1px 0px;
-}
