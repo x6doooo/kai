@@ -1,0 +1,29 @@
+{
+  "name": "Kai",
+  "description": "A Javascript library ",
+  "version": "0.0.1",
+  "author": "Dx.Yang <x6doooo@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/x6doooo/kai.git"
+  },
+  "bugs": {
+    "url": "http://github.com/x6doooo/kai/issues"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-uglify": "~0.3.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-copy": "~0.4.0"
+  },
+  "license": [
+    {
+      "type" : "MIT",
+      "url" : "https://github.com/x6doooo/kai/raw/master/LICENSE-MIT"
+    }
+  ],
+  "homepage": "https://github.com/x6doooo/kai"
+}
+
