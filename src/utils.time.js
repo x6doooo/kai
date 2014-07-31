@@ -438,12 +438,7 @@
         [ 'Z', 'Zulu Time (Coordinated Universal Time)', '+0000' ] 
     ];
 
-    if (typeof module !== 'undefined' && module.exports) {
-        module.exports = Time;
-    } else if (typeof Kai !== 'undefined') {
-        Kai.Time = Time;
-    }
-
+    Kai.Time = Time;
     
 })();
 
