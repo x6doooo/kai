@@ -219,6 +219,15 @@
         return to._date - from._date;
     };
 
+    // 获取当前的世界时时间戳
+    Timer.timestamp = function(needUTC) {
+        var t = new Date();
+        if (needUTC) {
+            return t.getTime() + t.getTimezoneOffset() * 60 * 1000;
+        }
+        return +t;
+    };
+
     //TODO:
     //ms2day
     //formatOffset  差多少年 多少个月 多少天 多少小时
