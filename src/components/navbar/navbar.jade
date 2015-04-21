@@ -1,0 +1,18 @@
+.navbar.navbar-default.navbar-fixed-top
+    .container-fluid
+        .navbar-header
+            .navbar-brand(href="https://github.com/Swiip/generator-gulp-angular")
+                img(src="assets/images/kai-logo.png",style="height:22px")
+
+        .collapse.navbar-collapse#bs-example-navbar-collapse-6
+            ul.nav.navbar-nav
+                li(ng-repeat="item in list",ng-class="{true: 'active'}[currentTab == item.key]")
+                    a(ng-href="{{item.url}}")
+                        i(class="{{item.icon}}", style="margin-right: 5px;")
+                        |&nbsp;{{item.title}}
+
+            ul.nav.navbar-nav.navbar-right
+                li
+                    | Current date: {{ date | date:'yyyy-MM-dd' }}
+
+

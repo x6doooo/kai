@@ -1,0 +1,15 @@
+//
+   Created by yangdongxu on 15/4/9.
+div
+    .modal-header(ng-show="title")
+        h3.modal-title {{title}}
+    .modal-body
+        .row
+            .col-sm-2
+                span(style="font-size:40px;")
+                    i(class="{{icon}}")
+            .col-sm-9(style="padding:15px")
+                storng(style="word-wrap:break-word") {{content}}
+    .modal-footer
+        button.btn.btn-primary(ng-click="ok()") OK
+        button.btn.btn-warning(ng-if="type=='prompt'",ng-click="cancel()") Cancel

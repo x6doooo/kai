@@ -1,0 +1,15 @@
+//
+   Created by yangdongxu on 15/4/10.
+
+.row(ng-controller="DialogDemoCtrl",ng-init="init()",style="padding:10px 20px")
+    .col-md-12
+        h5 alert
+        .form-inline
+            input.form-control.input-sm(type="text",ng-model="messageText")
+            button.btn.btn-primary.btn-sm(ng-click="alert()") Go
+    .col-md-12
+        h5 prompt
+        .form-inline
+            input.form-control.input-sm(type="text",ng-model="promptText")
+            button.btn.btn-primary.btn-sm(ng-click="prompt()") Go
+
