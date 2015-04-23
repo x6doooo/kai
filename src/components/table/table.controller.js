@@ -5,9 +5,14 @@
 angular.module('kai')
     .controller('kai.TableCtrl', [
         '$scope',
+        'tableSortService',
         function(
-            $scope
+            $scope,
+            tableSortService
         ) {
-            console.log($scope.fields);
+            //console.log($scope.fields);
+            $scope.sort = function(field) {
+                tableSortService.sort(field, $scope, 'rows');
+            };
         }
     ]);

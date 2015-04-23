@@ -31,7 +31,7 @@ describe('ipHandlerService', function () {
             var range = ipHandlerService.getIpRange(ipnetNum, netmask);
             expect(range.start).toEqual(ipStart);
             expect(range.end).toEqual(ipEnd);
-        })
+        });
     });
 
 });

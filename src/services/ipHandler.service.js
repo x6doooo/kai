@@ -8,7 +8,7 @@ angular.module('kai')
             var self = this;
             //IP转成无符号数值
             self.IP2Num = function(ip) {
-                ip = ip.split(".");
+                ip = ip.split('.');
                 var num = ip[0] * 256 * 256 * 256 + ip[1] * 256 * 256 + ip[2] * 256 + ip[3] * 1;
                 num = num >>> 0;
                 return num;
@@ -21,7 +21,7 @@ angular.module('kai')
                 tt[1] = ((num << 8) >>> 24) >>> 0;
                 tt[2] = (num << 16) >>> 24;
                 tt[3] = (num << 24) >>> 24;
-                var str = tt[0] + "." + tt[1] + "." + tt[2] + "." + tt[3];
+                var str = tt[0] + '.' + tt[1] + '.' + tt[2] + '.' + tt[3];
                 return str;
             };
 

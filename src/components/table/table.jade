@@ -1,3 +1,20 @@
 //
    Created by yangdongxu on 15/4/23.
 
+table.table.table-condensed.table-bordered.table-hover
+    thead
+        tr
+            th(ng-repeat="f in fields",style="cursor:pointer;color:#aaa",
+            ng-click="sort(f)")
+                |{{f.title}} &nbsp;
+                span(ng-if="f.sort")
+                    span.text-muted(ng-if="sortKey != f.key")
+                        i.fa.fa-sort
+                    span(ng-if="sortKey == f.key && sortType == 'asc'")
+                        i.fa.fa-sort-asc.text-primary
+                    span(ng-if="sortKey == f.key && sortType == 'desc'")
+                        i.fa.fa-sort-desc.text-primary
+    tbody
+        tr(ng-repeat="r in rows")
+            td(ng-repeat="f in fields")
+                | {{r[f.key]}}
