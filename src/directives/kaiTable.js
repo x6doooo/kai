@@ -7,10 +7,10 @@ angular.module('kai')
         return {
             restrict: 'E',
             scope: {
-                options: '=',
-                data: '='
+                fields: '=',
+                rows: '='
             },
-            templateUrl: '',
-            controller: ''
+            templateUrl: 'components/table/table.html',
+            controller: 'kai.TableCtrl'
         };
     });
