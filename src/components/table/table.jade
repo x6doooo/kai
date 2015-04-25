@@ -1,20 +1,56 @@
 //
    Created by yangdongxu on 15/4/23.
 
-table.table.table-condensed.table-bordered.table-hover
-    thead
-        tr
-            th(ng-repeat="f in fields",style="cursor:pointer;color:#aaa",
-            ng-click="sort(f)")
-                |{{f.title}} &nbsp;
-                span(ng-if="f.sort")
-                    span.text-muted(ng-if="sortKey != f.key")
-                        i.fa.fa-sort
-                    span(ng-if="sortKey == f.key && sortType == 'asc'")
-                        i.fa.fa-sort-asc.text-primary
-                    span(ng-if="sortKey == f.key && sortType == 'desc'")
-                        i.fa.fa-sort-desc.text-primary
-    tbody
-        tr(ng-repeat="r in rows")
-            td(ng-repeat="f in fields")
-                | {{r[f.key]}}
+.row.col-md-12.kai-table-wrap
+    div.clearfix(style="margin-bottom:10px")
+        .col-md-5(style="padding-left:0")
+            .input-group
+                span.input-group-addon
+                    i.fa.fa-search
+                input.form-control(ng-model="searchFilter",type="text")
+        .col-md-7(style="padding-right:0")
+            button(ng-repeat="b in options.topButtons",
+            class="{{b.className}} pull-right",
+            style="margin-left:5px;padding-left:20px;padding-right:20px")
+                | {{b.title}}
+    table.table.table-condensed.table-hover(style="border:1px solid #ddd;margin-bottom:0")
+        thead
+            tr
+                th(ng-show="options.checkbox",width="30px")
+                    input(type="checkbox",ng-click="checkboxHandler()",ng-model="allChecked")
+                th(ng-repeat="f in fields",style="cursor:pointer;",
+                ng-click="sort(f)")
+                    |{{f.title}} &nbsp;
+                    span(ng-if="f.sort")
+                        span.text-muted(ng-if="sortKey != f.key")
+                            i.fa.fa-sort
+                        span(ng-if="sortKey == f.key && sortType == 'asc'")
+                            i.fa.fa-sort-asc.text-primary
+                        span(ng-if="sortKey == f.key && sortType == 'desc'")
+                            i.fa.fa-sort-desc.text-primary
+                th(ng-if="options.buttons")
+        tbody
+            tr(ng-repeat="r in theRows=(rows | filter: searchFilter)")
+                td(ng-if="options.checkbox")
+                    input(type="checkbox",ng-click="checkboxHandler(r)",ng-model="r.checked")
+                td(ng-repeat="f in fields",
+                bind-html-unsafe="f.valueHandler && f.valueHandler(r[f.key]) || r[f.key]")
+                td(ng-if="options.buttons",style="text-align:right")
+                    a(href="javascript:;",
+                    ng-repeat="btn in options.buttons",
+                    class="{{btn.className}}",
+                    ng-click="btn.action(r)",
+                    style="margin-right:10px")
+                        i(ng-if="btn.icon",class="{{btn.icon}}",style="margin-right:2px")
+                        |{{btn.title}}
+    div(ng-show="theRows.length === 0",
+    style="border-left:1px solid #ddd;border-right:1px solid #ddd;border-bottom:1px solid #ddd;")
+        div.text-muted(style="padding:10px;",ng-show="!isLoading")
+            i.fa.fa-info-circle
+            |&nbsp;no data
+        div(style="padding:10px",ng-show="isLoading")
+            span
+                i.fa.fa-spin.fa-spinner
+                |&nbsp; loading...
+
+    //todo: pagination

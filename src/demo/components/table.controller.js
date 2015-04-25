@@ -9,14 +9,50 @@ angular.module('kaiDemo').controller('TableDemoCtrl', [
     ) {
         $scope.init = function() {
             $scope.options = {
-                //checkbox
-                //button
-                //search
+                search: true,
+                checkbox: true,
+                topButtons: [{
+                    className: 'btn btn-primary btn-sm',
+                    icon: 'fa fa-edit',
+                    title: 'Edit',
+                    action: function(row) {
+                        console.log(row)
+                    }
+                }, {
+                    className: 'btn btn-danger btn-sm',
+                    icon: 'fa fa-trash',
+                    title: 'Del',
+                    action: function (row) {
+                        console.log(row)
+                    }
+                }],
+                buttons: [{
+                    className: 'text-primary',
+                    icon: 'fa fa-edit',
+                    title: 'Edit',
+                    action: function(row) {
+                        console.log(row)
+                    }
+                }, {
+                    className: 'text-danger',
+                    icon: 'fa fa-trash',
+                    title: 'Del',
+                    action: function(row) {
+                        console.log(row)
+                    }
+                }]
             };
             $scope.fields = [{
                 key: 'country',
                 title: '国家',
-                sort: 'string'
+                sort: 'string',
+                valueHandler: function(value) {
+                    if (value === '美国') {
+                        return '<span style="color:#08c">' + value + '</span>';
+                    } else {
+                        return '<b>' + value + '</b>';
+                    }
+                }
             }, {
                 key: 'city',
                 title: '城市',

@@ -6,11 +6,9 @@ angular.module('kaiDemo')
     .controller('DialogDemoCtrl', [
         '$scope',
         'dialogService',
-        '$window',
         function(
             $scope,
-            dialogService,
-            $window
+            dialogService
         ) {
             // alert
             $scope.messageText = 'this is a test!this is a test!';
@@ -18,7 +16,7 @@ angular.module('kaiDemo')
                 dialogService.alert({
                     content: $scope.messageText
                 }).done(function() {
-                    $window.alert('close');
+                    alert('close');
                 });
             };
 
@@ -28,9 +26,9 @@ angular.module('kaiDemo')
                 dialogService.prompt({
                     content: $scope.promptText
                 }).done(function() {
-                    $window.alert('ok');
+                    alert('ok');
                 }).fail(function() {
-                    $window.alert('cancel');
+                    alert('cancel');
                 });
             };
 

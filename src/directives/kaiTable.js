@@ -7,6 +7,7 @@ angular.module('kai')
         return {
             restrict: 'E',
             scope: {
+                options: '=',
                 fields: '=',
                 rows: '='
             },
