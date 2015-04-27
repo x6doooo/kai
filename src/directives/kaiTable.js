@@ -5,7 +5,7 @@
 angular.module('kai')
     .directive('kaiTable', function() {
         return {
-            restrict: 'E',
+            restrict: 'A',
             scope: {
                 options: '=',
                 fields: '=',

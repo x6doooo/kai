@@ -6,7 +6,7 @@
 angular.module('kai')
     .directive('kaiSiderNav', function() {
         return {
-            restrict: 'E',
+            restrict: 'A',
             scope: {
                 list: '=list'
             },

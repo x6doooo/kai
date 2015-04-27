@@ -11,19 +11,27 @@ angular.module('kaiDemo').controller('TableDemoCtrl', [
             $scope.options = {
                 search: true,
                 checkbox: true,
+                pagination: {
+                    totalItems: 100,
+                    itemsPerPage: 20,
+                    current: 1,
+                    action: function(pageNumber) {
+                        console.log(pageNumber);
+                    }
+                },
                 topButtons: [{
                     className: 'btn btn-primary btn-sm',
                     icon: 'fa fa-edit',
                     title: 'Edit',
                     action: function(row) {
-                        console.log(row)
+                        console.log(row);
                     }
                 }, {
                     className: 'btn btn-danger btn-sm',
                     icon: 'fa fa-trash',
                     title: 'Del',
                     action: function (row) {
-                        console.log(row)
+                        console.log(row);
                     }
                 }],
                 buttons: [{
@@ -31,14 +39,14 @@ angular.module('kaiDemo').controller('TableDemoCtrl', [
                     icon: 'fa fa-edit',
                     title: 'Edit',
                     action: function(row) {
-                        console.log(row)
+                        console.log(row);
                     }
                 }, {
                     className: 'text-danger',
                     icon: 'fa fa-trash',
                     title: 'Del',
                     action: function(row) {
-                        console.log(row)
+                        console.log(row);
                     }
                 }]
             };

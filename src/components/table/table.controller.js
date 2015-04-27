@@ -11,7 +11,34 @@ angular.module('kai')
             tableSortService
         ) {
 
-            //console.log($scope.options);
+            $scope.init = function() {
+
+                // init
+                $scope.options = $scope.options || {};
+
+                // pagination
+                $scope.options.pagination = $scope.options.pagination || {};
+                var paginationKeys = {
+                    totalItems: 1,
+                    maxSize: 5,
+                    itemsPerPage: 20,
+                    boundaryLinks: true,
+                    rotate: false,
+                    previousText: '上一页',
+                    nextText: '下一页',
+                    firstText: '首页',
+                    lastText: '尾页',
+                    numberPerPage: 1,
+                    totalRows: 1,
+                    action: function() {}
+                };
+                _.each(paginationKeys, function(defaultValue, key) {
+                    if (typeof $scope.options.pagination[key] === 'undefined') {
+                        $scope.options.pagination[key] = defaultValue;
+                    }
+                });
+            };
+
             $scope.checkboxHandler = function(row) {
                 if (!row) {
                     _.each($scope.rows, function(r) {

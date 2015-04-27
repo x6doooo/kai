@@ -63,6 +63,10 @@ module.exports = function (options) {
             .pipe($.inject(partialsMainInjectFile, partialsMainInjectOptions))
             .pipe(assets = $.useref.assets())
             .pipe($.rev())
+            .pipe($.rename(function(p) {
+                p.basename = p.basename.replace(/\-.+/g, '');
+                p.basename += '-' + new Date() * 1;
+            }))
             .pipe(jsFilter)
             .pipe($.ngAnnotate())
             .pipe($.uglify({preserveComments: $.uglifySaveLicense})).on('error', options.errorHandler('Uglify'))

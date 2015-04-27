@@ -5,7 +5,7 @@
 angular.module('kai')
     .directive('kaiNavbar', function() {
         return {
-            restrict: 'E',
+            restrict: 'A',
             replace: true,
             //transclude: true,
             scope: {

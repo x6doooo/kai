@@ -1,7 +1,7 @@
 //
    Created by yangdongxu on 15/4/23.
 
-.row.col-md-12.kai-table-wrap
+.row.col-md-12.kai-table-wrap(ng-init="init()")
     div.clearfix(style="margin-bottom:10px")
         .col-md-5(style="padding-left:0")
             .input-group
@@ -53,4 +53,21 @@
                 i.fa.fa-spin.fa-spinner
                 |&nbsp; loading...
 
-    //todo: pagination
+    div.clearfix(style="margin-bottom:10px")
+        .col-md-6(style="padding-left:0")
+            pagination(ng-show="options.pagination.current",
+            total-items="options.pagination.totalItems",
+            ng-model="options.pagination.current",
+            max-size="options.pagination.maxSize",
+            class="pagination-sm",
+            boundary-links="options.pagination.boundaryLinks",
+            rotate="options.pagination.rotate",
+            previous-text="{{options.pagination.previousText}}",
+            next-text="{{options.pagination.nextText}}",
+            first-text="{{options.pagination.firstText}}",
+            last-text="{{options.pagination.lastText}}",
+            num-pages="options.pagination.numPages",
+            ng-change="options.pagination.action(options.pagination.current)")
+        .col-md-6(style="padding-right:0")
+            p.text-muted.text-right(style="margin:16px 0")
+                |每页 {{options.pagination.itemsPerPage}} 条记录 / 共 {{options.pagination.totalItems}} 条记录

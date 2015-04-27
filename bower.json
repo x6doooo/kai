@@ -1,6 +1,20 @@
 {
   "name": "kai",
   "version": "0.0.1",
+  "ignore": [
+      ".jshintrc",
+      ".bowerrc",
+      ".editorconfig",
+      ".gitignore",
+      ".yo-rc.json",
+      "gulpfile.js",
+      "karma.conf.js",
+      "LICENSE-MIT",
+      "protractor.conf.js",
+      "e2e",
+      "gulp",
+      "src"
+  ],
   "dependencies": {
     "angular-animate": "~1.4",
     "angular-cookies": "~1.4",
