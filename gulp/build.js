@@ -19,7 +19,7 @@ module.exports = function (options) {
             }))
             .pipe($.angularTemplatecache('templateCacheHtmlDemo.js', {
                 root: 'demo',
-                module: 'macchiatoDemo'
+                module: 'kaiDemo'
             }))
             .pipe(gulp.dest(options.tmp + '/partials/'));
     });
@@ -34,7 +34,7 @@ module.exports = function (options) {
                 quotes: true
             }))
             .pipe($.angularTemplatecache('templateCacheHtmlMain.js', {
-                module: 'macchiato'
+                module: 'kai'
             }))
             .pipe(gulp.dest(options.tmp + '/partials/'));
     });

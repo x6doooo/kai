@@ -4,7 +4,7 @@ describe('controllers', function(){
     /*
   var scope;
 
-  beforeEach(module('macchiato'));
+  beforeEach(module('kaiDemo'));
 
   beforeEach(inject(function($rootScope) {
     scope = $rootScope.$new();
