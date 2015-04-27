@@ -10,7 +10,7 @@ angular.module('kaiDemo', [
         key: 'charts',
         title: 'Charts',
         icon: 'fa fa-area-chart',
-        url: '/#/charts/style'
+        url: '/#/charts/base'
     }, {
         key: 'components',
         title: 'components',

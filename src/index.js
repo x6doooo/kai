@@ -8,5 +8,6 @@ angular.module('kai', [
     'ngSanitize',
     'ngRoute',
     'ui.bootstrap',
-    'formly'
+    'formly',
+    'highcharts-ng'
 ]);

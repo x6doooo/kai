@@ -11,20 +11,10 @@ angular.module('kaiDemo')
             $routeParams
         ) {
             $scope.siderNavList = [{
-                key: 'style',
-                title: 'style',
+                key: 'base',
+                title: 'base',
                 icon: 'fa fa-file-code-o',
-                url: '/#/charts/style'
-            }, {
-                key: 'form',
-                title: 'form',
-                icon: 'fa fa-file',
-                url: '/#/charts/form'
-            }, {
-                key: 'dialog',
-                title: 'dialog',
-                icon: 'fa fa-comment',
-                url: '/#/charts/dialog'
+                url: '/#/charts/base'
             }];
 
             function getTemplate(which) {
