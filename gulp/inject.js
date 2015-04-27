@@ -17,7 +17,8 @@ module.exports = function(options) {
 
     // main style
     var injectMainStyles = gulp.src([
-      options.tmp + '/serve/{components, styles}/**/*.css'
+      options.tmp + '/serve/{components, styles}/**/*.css',
+        '!' + options.tmp + '/serve/styles/main.css'
     ], { read: false });
 
     // demo script
