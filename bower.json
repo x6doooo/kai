@@ -1,6 +1,11 @@
 {
   "name": "kai",
-  "version": "0.0.3",
+  "version": "0.0.4",
+  "main": [
+    "dist/scripts/main-*.js",
+    "dist/scripts/vendor-*.js",
+    "dist/styles/vendor-*.js"
+  ],
   "ignore": [
     ".jshintrc",
     ".bowerrc",
