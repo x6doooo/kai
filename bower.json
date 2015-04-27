@@ -1,6 +1,6 @@
 {
   "name": "kai",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "main": [
     "dist/scripts/main-*.js",
     "dist/styles/main-*.css"

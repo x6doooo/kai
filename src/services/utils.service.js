@@ -8,7 +8,7 @@ angular.module('kai')
                 if (_.isObject(obj) && obj[key]) {
                     obj = obj[key];
                 } else {
-                    obj = null;
+                    obj = undefined;
                 }
             });
             return obj;
