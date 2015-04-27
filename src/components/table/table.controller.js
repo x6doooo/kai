@@ -6,9 +6,11 @@ angular.module('kai')
     .controller('kai.TableCtrl', [
         '$scope',
         'tableSortService',
+        'utilsService',
         function(
             $scope,
-            tableSortService
+            tableSortService,
+            utilsService
         ) {
 
             $scope.init = function() {
@@ -38,6 +40,11 @@ angular.module('kai')
                     }
                 });
             };
+
+            $scope.valueOfKey = function(obj, key) {
+                return utilsService.getObjectValueByKeyChain(obj, key);
+            };
+
 
             $scope.checkboxHandler = function(row) {
                 if (!row) {

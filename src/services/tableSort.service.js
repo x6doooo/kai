@@ -4,7 +4,10 @@
 
 angular.module('kai')
     .service('tableSortService', [
-        function() {
+        'utilsService',
+        function(
+            utilsService
+        ) {
             var self = this;
             self.sort = function(th, scope, whichScopeKeyToBeSort) {
                 if (!th.sort) {
@@ -23,17 +26,30 @@ angular.module('kai')
                 var sortFunc;
                 if (th.sort === 'string') {
                     sortFunc = function(a, b) {
-                        return a[key].localeCompare(b[key]) * t;
+                        a = utilsService.getObjectValueByKeyChain(a, key);
+                        b = utilsService.getObjectValueByKeyChain(b, key);
+                        //console.log(a, b)
+                        if (!a) {
+                            return -1 * t;
+                        }
+                        if (!b) {
+                            return t;
+                        }
+                        return a.localeCompare(b) * t;
                     };
                 }
                 if (th.sort === 'number') {
                     sortFunc = function(a, b) {
-                        return (a[key] - b[key]) * t;
+                        a = utilsService.getObjectValueByKeyChain(a, key);
+                        b = utilsService.getObjectValueByKeyChain(b, key);
+                        return (a - b) * t;
                     };
                 }
                 if (th.sort === 'array') {
                     sortFunc = function(a, b) {
-                        return (a[key].length - b[key].length) * t;
+                        a = utilsService.getObjectValueByKeyChain(a, key);
+                        b = utilsService.getObjectValueByKeyChain(b, key);
+                        return (a.length - b.length) * t;
                     };
                 }
                 scope[whichScopeKeyToBeSort].sort(sortFunc);

@@ -55,6 +55,7 @@ angular.module('kaiDemo').controller('TableDemoCtrl', [
                 title: '国家',
                 sort: 'string',
                 valueHandler: function(value) {
+                    console.log(value);
                     if (value === '美国') {
                         return '<span style="color:#08c">' + value + '</span>';
                     } else {
@@ -72,17 +73,27 @@ angular.module('kaiDemo').controller('TableDemoCtrl', [
             }, {
                 key: 'keywords',
                 title: '关键词'
+            }, {
+                key: 'deepKey.subKey',
+                title: '多层key',
+                sort: 'string'
             }];
             $scope.rows = [{
                 country: '中国',
                 city: '北京',
                 code: 1,
-                keywords: '首都'
+                keywords: '首都',
+                deepKey: {
+                    subKey: 'ttt'
+                }
             }, {
                 country: '美国',
                 city: '纽约',
                 code: 2,
-                keywords: '曼哈顿'
+                keywords: '曼哈顿',
+                deepKey: {
+                    subKey: 'cccc'
+                }
             }, {
                 country: '澳大利亚',
                 city: '悉尼',

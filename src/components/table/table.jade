@@ -34,7 +34,7 @@
                 td(ng-if="options.checkbox")
                     input(type="checkbox",ng-click="checkboxHandler(r)",ng-model="r.checked")
                 td(ng-repeat="f in fields",
-                bind-html-unsafe="f.valueHandler && f.valueHandler(r[f.key]) || r[f.key]")
+                bind-html-unsafe="f.valueHandler && f.valueHandler(valueOfKey(r, f.key)) || valueOfKey(r, f.key)")
                 td(ng-if="options.buttons",style="text-align:right")
                     a(href="javascript:;",
                     ng-repeat="btn in options.buttons",
