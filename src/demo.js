@@ -1,6 +1,7 @@
 angular.module('kaiDemo', [
         'kai'
     ])
+    .constant('kai.mainNavTitle', '<img src="assets/images/kai-logo-black.png" style="height:22px">')
     .constant('kai.mainNavList', [{
         key: 'home',
         title: 'Home',

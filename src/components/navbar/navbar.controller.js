@@ -3,12 +3,15 @@ angular.module('kai')
         '$scope',
         '$location',
         'kai.mainNavList',
+        'kai.mainNavTitle',
         function (
             $scope,
             $location,
-            mainNavList
+            mainNavList,
+            mainNavTitle
         ) {
             $scope.list = mainNavList;
+            $scope.title = mainNavTitle;
             function changeTab() {
                 var p = $location.path();
                 if (!p) {

@@ -1,8 +1,8 @@
 .navbar.navbar-default.navbar-fixed-top
     .container-fluid
         .navbar-header
-            .navbar-brand(href="https://github.com/Swiip/generator-gulp-angular")
-                img(src="assets/images/kai-logo-black.png",style="height:22px")
+            .navbar-brand(bind-html-unsafe="title",
+            href="https://github.com/Swiip/generator-gulp-angular")
 
         .collapse.navbar-collapse#bs-example-navbar-collapse-6
             ul.nav.navbar-nav
