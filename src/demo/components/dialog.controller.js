@@ -11,7 +11,7 @@ angular.module('kaiDemo')
             dialogService
         ) {
             // alert
-            $scope.messageText = 'this is a test!this is a test!';
+            $scope.messageText = 'This is a test!';
             $scope.alert = function() {
                 dialogService.alert({
                     content: $scope.messageText

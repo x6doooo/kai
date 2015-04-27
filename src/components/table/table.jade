@@ -19,7 +19,8 @@
                 th(ng-show="options.checkbox",width="30px")
                     input(type="checkbox",ng-click="checkboxHandler()",ng-model="allChecked")
                 th(ng-repeat="f in fields",style="cursor:pointer;",
-                ng-click="sort(f)")
+                ng-click="sort(f)",
+                width="{{f.width}}")
                     |{{f.title}} &nbsp;
                     span(ng-if="f.sort")
                         span.text-muted(ng-if="sortKey != f.key")

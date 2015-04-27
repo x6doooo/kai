@@ -51,6 +51,7 @@ angular.module('kaiDemo').controller('TableDemoCtrl', [
                 }]
             };
             $scope.fields = [{
+                width: '10%',
                 key: 'country',
                 title: '国家',
                 sort: 'string',
@@ -63,17 +64,21 @@ angular.module('kaiDemo').controller('TableDemoCtrl', [
                     }
                 }
             }, {
+                width: '10%',
                 key: 'city',
                 title: '城市',
                 sort: 'string'
             }, {
+                //width: '20%',
                 key: 'code',
                 title: '标识数字',
                 sort: 'number'
             }, {
+                width: '20%',
                 key: 'keywords',
                 title: '关键词'
             }, {
+                width: '20%',
                 key: 'deepKey.subKey',
                 title: '多层key',
                 sort: 'string'
