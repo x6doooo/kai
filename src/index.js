@@ -3,6 +3,7 @@
  */
 
 angular.module('kai', [
+	'chieffancypants.loadingBar',
     'ngAnimate',
     'ngCookies',
     'ngSanitize',
@@ -10,4 +11,7 @@ angular.module('kai', [
     'ui.bootstrap',
     'formly',
     'highcharts-ng'
-]);
+]).config(function(cfpLoadingBarProvider) {
+    //true is the default, but I left this here as an example:
+    cfpLoadingBarProvider.includeSpinner = true;
+});
