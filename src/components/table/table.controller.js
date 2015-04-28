@@ -42,7 +42,11 @@ angular.module('kai')
             };
 
             $scope.valueOfKey = function(obj, key) {
-                return utilsService.getObjectValueByKeyChain(obj, key);
+                var v = utilsService.getObjectValueByKeyChain(obj, key);
+                if (v === 0) {
+                    v = '0';
+                }
+                return v;
             };
 
 

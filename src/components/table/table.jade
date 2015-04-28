@@ -1,7 +1,7 @@
 //
    Created by yangdongxu on 15/4/23.
 
-.row.col-md-12.kai-table-wrap(ng-init="init()")
+.kai-table-wrap(ng-init="init()")
     div.clearfix(style="margin-bottom:10px")
         .col-md-5(style="padding-left:0")
             .input-group
@@ -11,7 +11,9 @@
         .col-md-7(style="padding-right:0")
             button(ng-repeat="b in options.topButtons",
             class="{{b.className}} pull-right",
-            style="margin-left:5px;padding-left:20px;padding-right:20px")
+            style="margin-left:5px;padding-left:20px;padding-right:20px",
+            ng-click="b.action()")
+                i(ng-if="b.icon",class="{{b.icon}}")
                 | {{b.title}}
     table.table.table-condensed.table-hover(style="border:1px solid #ddd;margin-bottom:0")
         thead
@@ -44,12 +46,12 @@
                     style="margin-right:10px")
                         i(ng-if="btn.icon",class="{{btn.icon}}",style="margin-right:2px")
                         |{{btn.title}}
-    div(ng-show="theRows.length === 0",
+    div(ng-show="!theRows || theRows.length === 0",
     style="border-left:1px solid #ddd;border-right:1px solid #ddd;border-bottom:1px solid #ddd;")
-        div.text-muted(style="padding:10px;",ng-show="!isLoading")
+        div.text-muted(style="padding:10px;",ng-show="!options.isLoading")
             i.fa.fa-info-circle
             |&nbsp;no data
-        div(style="padding:10px",ng-show="isLoading")
+        div(style="padding:10px",ng-show="options.isLoading")
             span
                 i.fa.fa-spin.fa-spinner
                 |&nbsp; loading...
@@ -69,6 +71,6 @@
             last-text="{{options.pagination.lastText}}",
             num-pages="options.pagination.numPages",
             ng-change="options.pagination.action(options.pagination.current)")
-        .col-md-6(style="padding-right:0")
+        .col-md-6(ng-show="options.pagination.current",style="padding-right:0")
             p.text-muted.text-right(style="margin:16px 0")
                 |每页 {{options.pagination.itemsPerPage}} 条记录 / 共 {{options.pagination.totalItems}} 条记录

@@ -13,6 +13,7 @@ describe('utilsService', function () {
 
     describe('object utils', function () {
         var obj = {
+            key00: 0,
             key01: 1,
             key02: {
                 key11: 2,
@@ -23,6 +24,7 @@ describe('utilsService', function () {
             }
         };
         it('getObjectValueByKeyChain', function () {
+            expect(utilsService.getObjectValueByKeyChain(obj, 'key00')).toEqual(0);
             expect(utilsService.getObjectValueByKeyChain(obj, 'key01')).toEqual(1);
             expect(utilsService.getObjectValueByKeyChain(obj, 'key02.key11')).toEqual(2);
             expect(utilsService.getObjectValueByKeyChain(obj, 'key02.key12')).toEqual(3);

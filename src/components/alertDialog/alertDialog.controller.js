@@ -20,7 +20,7 @@ angular.module('kai')
             };
 
             var config = {
-                icon: 'success'
+                icon: 'info'
             };
 
             _.merge(config, messageDialogOptions);

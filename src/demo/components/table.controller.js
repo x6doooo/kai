@@ -8,6 +8,7 @@ angular.module('kaiDemo').controller('TableDemoCtrl', [
         $scope
     ) {
         $scope.init = function() {
+
             $scope.options = {
                 search: true,
                 checkbox: true,
@@ -94,7 +95,7 @@ angular.module('kaiDemo').controller('TableDemoCtrl', [
             }, {
                 country: '美国',
                 city: '纽约',
-                code: 2,
+                code: 0,
                 keywords: '曼哈顿',
                 deepKey: {
                     subKey: 'cccc'

@@ -21,7 +21,8 @@ module.exports = function (options) {
             options.src + '/{components,styles}/**/*.scss',
             options.src + '/{components,styles}/**/*.sass',
             '!' + options.src + '/styles/main.scss',
-            '!' + options.src + '/styles/vendor.scss'
+            '!' + options.src + '/styles/vendor.scss',
+            '!' + options.src + '/styles/bootstrap.scss'
         ], {read: false});
 
         var injectDemoOptions = {

@@ -102,7 +102,7 @@ module.exports = function (options) {
     gulp.task('other', function () {
         return gulp.src([
             options.src + '/**/*',
-            '!' + options.src + '/**/*.{html,css,js,scss,jade}'
+            '!' + options.src + '/**/*.{html,css,js,scss,sass,jade}'
         ])
             .pipe(gulp.dest(options.dist + '/'));
     });
