@@ -13,12 +13,8 @@ angular.module('kaiDemo').controller('TableDemoCtrl', [
                 search: true,
                 checkbox: true,
                 pagination: {
-                    totalItems: 100,
-                    itemsPerPage: 20,
-                    current: 1,
-                    action: function(pageNumber) {
-                        console.log(pageNumber);
-                    }
+                    itemsPerPage: 2,
+                    current: 1
                 },
                 topButtons: [{
                     className: 'btn btn-primary btn-sm',
@@ -57,7 +53,6 @@ angular.module('kaiDemo').controller('TableDemoCtrl', [
                 title: '国家',
                 sort: 'string',
                 valueHandler: function(value) {
-                    console.log(value);
                     if (value === '美国') {
                         return '<span style="color:#08c">' + value + '</span>';
                     } else {
@@ -100,6 +95,11 @@ angular.module('kaiDemo').controller('TableDemoCtrl', [
                 deepKey: {
                     subKey: 'cccc'
                 }
+            }, {
+                country: '新西兰',
+                city: '奥克兰',
+                code: 6,
+                keywords: ''
             }, {
                 country: '澳大利亚',
                 city: '悉尼',

@@ -7,38 +7,64 @@ angular.module('kai')
         '$scope',
         'tableSortService',
         'utilsService',
+        '$filter',
         function(
             $scope,
             tableSortService,
-            utilsService
+            utilsService,
+            $filter
         ) {
+
+            function getRowsAtCurrentPage() {
+                var start = $scope.options.pagination.itemsPerPage * ($scope.options.pagination.current - 1);
+                var end = start + $scope.options.pagination.itemsPerPage;
+                if (end > $scope.options.pagination.totalItems) {
+                    end = $scope.options.pagination.totalItems;
+                }
+                $scope.theRows = $scope.filtedRows.slice(start, end);
+            }
+
+            $scope.filterKeyWords = function() {
+                var w = $scope.searchFilter;
+                var find = $filter('filter');
+                $scope.filtedRows = find($scope.rows, w);
+                $scope.options.pagination.totalItems = $scope.filtedRows.length;
+                getRowsAtCurrentPage();
+            };
 
             $scope.init = function() {
 
                 // init
                 $scope.options = $scope.options || {};
 
+                $scope.filtedRows = [];
+
                 // pagination
                 $scope.options.pagination = $scope.options.pagination || {};
                 var paginationKeys = {
-                    totalItems: 1,
+                    totalItems: $scope.filtedRows.length,
                     maxSize: 5,
-                    itemsPerPage: 20,
+                    itemsPerPage: 2,
                     boundaryLinks: true,
                     rotate: false,
                     previousText: '上一页',
                     nextText: '下一页',
                     firstText: '首页',
                     lastText: '尾页',
-                    numberPerPage: 1,
-                    totalRows: 1,
-                    action: function() {}
+                    //numberPerPage: 1,
+                    //totalRows: 1,
+                    action: function() {
+                        getRowsAtCurrentPage();
+                    }
                 };
                 _.each(paginationKeys, function(defaultValue, key) {
                     if (typeof $scope.options.pagination[key] === 'undefined') {
                         $scope.options.pagination[key] = defaultValue;
                     }
                 });
+                //console.log($scope.options.pagination);
+                // filte
+                $scope.filterKeyWords();
             };
 
             $scope.valueOfKey = function(obj, key) {
@@ -67,7 +93,8 @@ angular.module('kai')
             };
 
             $scope.sort = function(field) {
-                tableSortService.sort(field, $scope, 'rows');
+                tableSortService.sort(field, $scope, 'filtedRows');
+                getRowsAtCurrentPage();
             };
 
         }

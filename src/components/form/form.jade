@@ -1,11 +1,12 @@
 //
    Created by yangdongxu on 15/4/28.
 
-
-form.kai-form
+form.kai-form(novalidate)
     table
-        tr
-            td
-                |field 1
-            td
-                input.form-control(type="text",value="field 1 value",style="width:400px")
+        tr(ng-repeat="f in fields")
+            td(style="text-align:right;vertical-align:top;")
+                div(style="font-weight:800;margin-top:8px;")
+                    span.text-danger(ng-if="f.required",style="font-size:10px;font-weight:400") *&nbsp;
+                    |{{f.title}}
+            td(ng-include="'components/form/fields/' + f.type + '.html'")
+

@@ -1,0 +1,6 @@
+//
+   Created by yangdongxu on 15/4/28.
+p(style="margin-top:7px")
+    label.radio-inline(ng-repeat="op in f.options")
+        input(type="radio",ng-value="op.value",ng-model="model[f.key]")
+        |{{op.title}}
