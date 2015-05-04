@@ -15,6 +15,10 @@ angular.module('kai')
             $filter
         ) {
 
+            $scope.$watch('rows', function(newRows) {
+                $scope.init();
+            });
+
             function getRowsAtCurrentPage() {
                 var start = $scope.options.pagination.itemsPerPage * ($scope.options.pagination.current - 1);
                 var end = start + $scope.options.pagination.itemsPerPage;

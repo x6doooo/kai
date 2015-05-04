@@ -7,3 +7,13 @@
     .ng-valid.ng-dirty
         border: 1px solid #0A0
 
+    .field-tip
+        color: #999
+        margin-top: 5px
+        margin-bottom: 0
+
+    .field-tip.invalid
+        color: red
+
+    .ng-invalid.ng-dirty ~ .field-tip
+        color: red

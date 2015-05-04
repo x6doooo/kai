@@ -11,17 +11,18 @@ angular.module('kaiDemo')
         ) {
 
             $scope.formModel = {};
+            $scope.formName = 'aTestForm';
             $scope.fields = [{
                 type: 'text',
                 key: 'username',
                 title: '用户名',
                 required: true,
                 disabled: false,
-                tip: '',
+                tip: '请输入用户名',
                 validators: [{
                     type: 'regexp',
-                    value: /\a/,
-                    tip: ''
+                    value: /^[0-9]+$/,
+                    tip: '只能是数字'
                 }, {
                     type: 'min',
                     value: 10,
@@ -35,7 +36,7 @@ angular.module('kaiDemo')
                 type: 'radio',
                 key: 'work',
                 title: '职业',
-                disabled: 'username.',
+                disabled: '',
                 options: [{
                     value: 'codeFarmer',
                     title: '码农'

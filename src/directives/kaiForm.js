@@ -8,6 +8,7 @@ angular.module('kai')
         return {
             restrict: 'A',
             scope: {
+                formName: '=',
                 model: '=',
                 options: '=',
                 fields: '='

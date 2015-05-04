@@ -14,7 +14,7 @@
             style="margin-left:5px;padding-left:20px;padding-right:20px",
             ng-click="b.action()")
                 i(ng-if="b.icon",class="{{b.icon}}")
-                | {{b.title}}
+                |&nbsp;{{b.title}}
     table.table.table-condensed.table-hover(style="border:1px solid #ddd;margin-bottom:0")
         thead
             tr
@@ -74,4 +74,4 @@
             ng-change="options.pagination.action(options.pagination.current)")
         .col-md-6(ng-show="options.pagination.current",style="padding-right:0")
             p.text-muted.text-right(style="margin:16px 0")
-                |每页 {{options.pagination.itemsPerPage}} 条记录 / 共 {{options.pagination.totalItems}} 条记录
+                |每页 {{options.pagination.itemsPerPage}} 条 / 共 {{options.pagination.totalItems}} 条

@@ -1,5 +1,12 @@
 //
    Created by yangdongxu on 15/4/28.
 .form-group
-    input.form-control(type="text",required,
+    input.form-control(type="text",
+    name="{{f.key}}",
+    kai-validator="f.validators",
+    ng-disabled="f.disabled",
+    ng-required="f.required",
     ng-model="model[f.key]")
+    p.field-tip(ng-show="f.tip") {{f.tip}}
+    p.field-tip.invalid(ng-repeat="v in f.validators",ng-if="v.tip",ng-show="{{formName}}.{{f.key}}.$error[v.type]")
+        |{{v.tip}}
