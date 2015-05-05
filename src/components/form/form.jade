@@ -1,9 +1,9 @@
 //
    Created by yangdongxu on 15/4/28.
 
-form.kai-form(novalidate,name="{{formName}}")
+form.kai-form(novalidate,name="{{formConfig.name}}")
     table
-        tr(ng-repeat="f in fields")
+        tr(ng-repeat="f in formConfig.fields")
             td(style="text-align:right;vertical-align:top;")
                 div(style="font-weight:800;margin-top:8px;")
                     span.text-danger(ng-if="f.required",style="font-size:10px;font-weight:400") *&nbsp;

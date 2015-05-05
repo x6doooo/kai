@@ -2,5 +2,16 @@
    Created by yangdongxu on 15/4/12.
 
 div(ng-controller="FormDemoCtrl",ng-init="init()",style="padding:10px 20px;margin-top:30px;")
-    div(kai-form,form-name="formName",fields="fields",options="options",model="formModel")
+    div(kai-form,form-config="formConfig")
+
+    ui-select(ng-model="country.selected",
+    theme="selectize",
+    ng-disabled="disabled",
+    style="width: 300px;",
+    ng-required,
+    ng-pattern="\d*")
+        ui-select-match(placeholder="Select or search a country in the list...") {{$select.selected.name}}
+        ui-select-choices(repeat="country in countries | filter: $select.search")
+            span(ng-bind-html="country.name | highlight: $select.search")
+            small(ng-bind-html="country.code | highlight: $select.search")
 

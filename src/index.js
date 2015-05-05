@@ -10,7 +10,8 @@ angular.module('kai', [
     'ngRoute',
     'ui.bootstrap',
     'formly',
-    'highcharts-ng'
+    'highcharts-ng',
+    'ui.select'
 ]).config(function(cfpLoadingBarProvider) {
     //true is the default, but I left this here as an example:
     cfpLoadingBarProvider.includeSpinner = true;

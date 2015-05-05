@@ -42,7 +42,8 @@
     "angular-formly": "~5.2.1",
     "highcharts": "~4.1.5",
     "highcharts-ng": "~0.0.8",
-    "angular-loading-bar": "~0.7.1"
+    "angular-loading-bar": "~0.7.1",
+    "angular-ui-select": "~0.11.2"
   },
   "devDependencies": {
     "bootstrap-sass-official": "~3.3.1",

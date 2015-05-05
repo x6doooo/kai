@@ -8,10 +8,7 @@ angular.module('kai')
         return {
             restrict: 'A',
             scope: {
-                formName: '=',
-                model: '=',
-                options: '=',
-                fields: '='
+                formConfig: '='
             },
             templateUrl: 'components/form/form.html',
             controller: 'kai.FormCtrl'
