@@ -5,11 +5,11 @@ div(ng-controller="FormDemoCtrl",ng-init="init()",style="padding:10px 20px;margi
     div(kai-form,form-config="formConfig")
 
     ui-select(ng-model="country.selected",
+    kai-select-open-to-selected,
     theme="selectize",
     ng-disabled="disabled",
     style="width: 300px;",
-    ng-required,
-    ng-pattern="\d*")
+    required)
         ui-select-match(placeholder="Select or search a country in the list...") {{$select.selected.name}}
         ui-select-choices(repeat="country in countries | filter: $select.search")
             span(ng-bind-html="country.name | highlight: $select.search")
