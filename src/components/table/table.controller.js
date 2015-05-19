@@ -15,7 +15,7 @@ angular.module('kai')
             $filter
         ) {
 
-            $scope.$watch('rows', function(newRows) {
+            $scope.$watch('rows', function(/*newRows*/) {
                 $scope.init();
             });
 
@@ -41,6 +41,14 @@ angular.module('kai')
                 // init
                 $scope.options = $scope.options || {};
 
+                $scope.options.colspan = $scope.fields.length;
+                if ($scope.options.buttons.length) {
+                    $scope.options.colspan += 1;
+                }
+                if ($scope.options.checkbox) {
+                    $scope.options.colspan += 1;
+                }
+
                 $scope.filtedRows = [];
 
                 // pagination
@@ -57,6 +65,19 @@ angular.module('kai')
                     lastText: '尾页',
                     //numberPerPage: 1,
                     //totalRows: 1,
+                    perPageOptions: [{
+                        value: 2,
+                        title: 2
+                    }, {
+                        value: 10,
+                        title: 10
+                    }, {
+                        value: 20,
+                        title: 20
+                    }, {
+                        value: 50,
+                        title: 50
+                    }],
                     action: function() {
                         getRowsAtCurrentPage();
                     }

@@ -11,7 +11,7 @@ angular.module('kai').directive('kaiValidator', function() {
                     return true;
                 }
                 return exp.test(modelValue);
-            }
+            };
         }
     };
 

@@ -46,32 +46,37 @@
                     style="margin-right:10px")
                         i(ng-if="btn.icon",class="{{btn.icon}}",style="margin-right:2px")
                         |{{btn.title}}
-    div(ng-show="!theRows || theRows.length === 0",
-    style="border-left:1px solid #ddd;border-right:1px solid #ddd;border-bottom:1px solid #ddd;")
-        div.text-muted(style="padding:10px;",ng-show="!options.isLoading")
-            i.fa.fa-info-circle
-            |&nbsp;no data
-        div(style="padding:10px",ng-show="options.isLoading")
-            span
-                i.fa.fa-spin.fa-spinner
-                |&nbsp; loading...
-
-    div.clearfix(style="margin-bottom:10px")
-        .col-md-6(style="padding-left:0")
-            pagination(ng-show="options.pagination.current",
-            total-items="options.pagination.totalItems",
-            items-per-page="options.pagination.itemsPerPage",
-            ng-model="options.pagination.current",
-            max-size="options.pagination.maxSize",
-            class="pagination-sm",
-            boundary-links="options.pagination.boundaryLinks",
-            rotate="options.pagination.rotate",
-            previous-text="{{options.pagination.previousText}}",
-            next-text="{{options.pagination.nextText}}",
-            first-text="{{options.pagination.firstText}}",
-            last-text="{{options.pagination.lastText}}",
-            num-pages="options.pagination.numPages",
-            ng-change="options.pagination.action(options.pagination.current)")
-        .col-md-6(ng-show="options.pagination.current",style="padding-right:0")
-            p.text-muted.text-right(style="margin:16px 0")
-                |每页 {{options.pagination.itemsPerPage}} 条 / 共 {{options.pagination.totalItems}} 条
+            tr(ng-show="!theRows || theRows.length === 0")
+                td(ng-attr-colspan="{{options.colspan}}")
+                    div.text-muted(style="padding:10px;",ng-show="!options.isLoading")
+                        i.fa.fa-info-circle
+                        |&nbsp;no data
+                    div(style="padding:10px",ng-show="options.isLoading")
+                        span
+                            i.fa.fa-spin.fa-spinner
+                            |&nbsp; loading...
+        tfoot
+            tr(ng-show="options.pagination.current")
+                td(ng-show="options.checkbox",style="vertical-align:middle")
+                    input(type="checkbox",ng-click="checkboxHandler()",ng-model="allChecked")
+                td(ng-attr-colspan="{{options.colspan - 1}}")
+                    pagination.pull-right(ng-show="options.pagination.current",
+                    style="margin-top:5px;margin-bottom:5px;",
+                    total-items="options.pagination.totalItems",
+                    items-per-page="options.pagination.itemsPerPage",
+                    ng-model="options.pagination.current",
+                    max-size="options.pagination.maxSize",
+                    class="pagination-sm",
+                    boundary-links="options.pagination.boundaryLinks",
+                    rotate="options.pagination.rotate",
+                    previous-text="{{options.pagination.previousText}}",
+                    next-text="{{options.pagination.nextText}}",
+                    first-text="{{options.pagination.firstText}}",
+                    last-text="{{options.pagination.lastText}}",
+                    num-pages="options.pagination.numPages",
+                    ng-change="options.pagination.action(options.pagination.current)")
+                    div.pull-right.text-muted.text-right(style="margin:5px 10px 5px 0;line-height:1.4")
+                        | 共 {{options.pagination.totalItems}} 条 / 每页:
+                        select(ng-model="options.pagination.itemsPerPage",
+                        ng-change="init()",
+                        ng-options="item.value as item.title for item in options.pagination.perPageOptions")
