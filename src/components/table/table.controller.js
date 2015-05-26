@@ -20,10 +20,14 @@ angular.module('kai')
             });
 
             function getRowsAtCurrentPage() {
-                var start = $scope.options.pagination.itemsPerPage * ($scope.options.pagination.current - 1);
-                var end = start + $scope.options.pagination.itemsPerPage;
-                if (end > $scope.options.pagination.totalItems) {
-                    end = $scope.options.pagination.totalItems;
+                var start = 0;
+                var end = $scope.filtedRows.length;
+                if ($scope.options.pagination.current) {
+                    start = $scope.options.pagination.itemsPerPage * ($scope.options.pagination.current - 1);
+                    end = start + $scope.options.pagination.itemsPerPage;
+                    if (end > $scope.options.pagination.totalItems) {
+                        end = $scope.options.pagination.totalItems;
+                    }
                 }
                 $scope.theRows = $scope.filtedRows.slice(start, end);
             }
@@ -66,9 +70,6 @@ angular.module('kai')
                     //numberPerPage: 1,
                     //totalRows: 1,
                     perPageOptions: [{
-                        value: 2,
-                        title: 2
-                    }, {
                         value: 10,
                         title: 10
                     }, {
