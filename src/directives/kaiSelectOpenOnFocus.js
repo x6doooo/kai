@@ -15,8 +15,8 @@ angular.module('kai').directive('kaiSelectOpenToSelected', function() {
 
                 // 这一层是滚动条所在的div
                 //ui-select-choices-content selectize-dropdown-content
-                console.log(scope.$select.ngModel.$viewValue);
-                console.log(element);
+                //console.log(scope.$select.ngModel.$viewValue);
+                //console.log(element);
             });
         }
     };

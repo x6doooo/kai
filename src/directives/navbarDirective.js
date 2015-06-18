@@ -7,7 +7,6 @@ angular.module('kai')
         return {
             restrict: 'A',
             replace: true,
-            //transclude: true,
             scope: {
             },
             templateUrl: 'components/navbar/navbar.html',

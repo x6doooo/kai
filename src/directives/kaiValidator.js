@@ -21,6 +21,7 @@ angular.module('kai').directive('kaiValidator', function() {
             'kaiValidator': '='
         },
         link: function(scope, elem, attrs, ctrl) {
+            //console.log(ctrl)
             _.each(scope.kaiValidator, function(v) {
                 var checkFn = hash[v.type] ? hash[v.type](ctrl, v.value) : null;
                 ctrl.$parsers.unshift(function(val) {

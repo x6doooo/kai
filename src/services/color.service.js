@@ -3,7 +3,6 @@
  */
 
 angular.module('kai').service('colorService', [
-
     function() {
 
         var self = this;
@@ -17,5 +16,4 @@ angular.module('kai').service('colorService', [
         };
 
     }
-
 ]);
