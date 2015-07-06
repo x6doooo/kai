@@ -1,8 +1,7 @@
 .navbar.navbar-default.navbar-fixed-top
     .container-fluid
         .navbar-header
-            .navbar-brand(bind-html-unsafe="title",
-            href="https://github.com/Swiip/generator-gulp-angular")
+            .navbar-brand(bind-html-unsafe="title")
 
         .collapse.navbar-collapse#bs-example-navbar-collapse-6
             ul.nav.navbar-nav
@@ -12,7 +11,8 @@
                         |&nbsp;{{item.title}}
 
             ul.nav.navbar-nav.navbar-right
-                li
-                    | Current date: {{ date | date:'yyyy-MM-dd' }}
+                li.nav-user
+                    |{{username}}
+                    //| Current date: {{ date | date:'yyyy-MM-dd' }}
 
 
