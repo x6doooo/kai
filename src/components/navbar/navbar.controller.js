@@ -4,14 +4,20 @@ angular.module('kai')
         '$location',
         'kai.mainNavList',
         'kai.mainNavTitle',
+        'kai.mainNavUser',
+        //'$cookies',
         function (
             $scope,
             $location,
             mainNavList,
-            mainNavTitle
+            mainNavTitle,
+            mainNavUser
+            //$cookies
         ) {
             $scope.list = mainNavList;
             $scope.title = mainNavTitle;
+            $scope.username = mainNavUser;//$cookies.get('kaiUsername');
+
             function changeTab() {
                 var p = $location.path();
                 if (!p) {
