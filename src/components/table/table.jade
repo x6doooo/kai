@@ -4,7 +4,7 @@
 .kai-table-wrap(ng-init="init()")
     div.clearfix(style="margin-bottom:10px")
         .col-md-5(style="padding-left:0",ng-show="options.search")
-            .input-group
+            .input-group.input-group-sm
                 span.input-group-addon
                     i.fa.fa-search
                 input.form-control(ng-model="searchFilter",ng-change="filterKeyWords()",type="text")

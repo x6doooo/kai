@@ -9,7 +9,6 @@ angular.module('kai', [
     'ngSanitize',
     'ngRoute',
     'ui.bootstrap',
-    'formly',
     'highcharts-ng',
     'ui.select'
 ]).config(function(cfpLoadingBarProvider) {
