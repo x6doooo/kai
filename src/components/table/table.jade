@@ -3,12 +3,12 @@
 
 .kai-table-wrap(ng-init="init()")
     div.clearfix(style="margin-bottom:10px")
-        .col-md-5(style="padding-left:0",ng-show="options.search")
+        .col-md-4(style="padding-left:0",ng-show="options.search")
             .input-group.input-group-sm
                 span.input-group-addon
                     i.fa.fa-search
                 input.form-control(ng-model="searchFilter",ng-change="filterKeyWords()",type="text")
-        .col-md-7(style="padding-right:0;padding-left:0")
+        .col-md-8(style="padding-right:0;padding-left:0")
             button(ng-repeat="b in options.topButtons",
             class="{{b.className}}",
             ng-class="{true:'pull-right ml5', false:'mr5'}[options.search]",
@@ -38,14 +38,16 @@
                 td(ng-if="options.checkbox")
                     input(type="checkbox",ng-click="checkboxHandler(r)",ng-model="r.checked")
                 td(ng-repeat="f in fields",
-                bind-html-unsafe="f.valueHandler && f.valueHandler(valueOfKey(r, f.key)) || valueOfKey(r, f.key)")
-                td(ng-if="options.buttons",style="text-align:right")
+                ng-bind-html="f.valueHandler && f.valueHandler(valueOfKey(r, f.key)) || valueOfKey(r, f.key)")
+                td(ng-if="options.buttons && options.buttons.length",style="text-align:right")
                     a(href="javascript:;",
                     ng-repeat="btn in options.buttons",
-                    class="{{btn.className}}",
+                    ng-if="btn.isShow ? btn.isShow(r) : true",
+                    ng-disabled="btn.isDisabled ? btn.isDisabled(r) : false",
+                    ng-attr-class="{{btn.className}}",
                     ng-click="btn.action(r)",
-                    style="margin-right:10px")
-                        i(ng-if="btn.icon",class="{{btn.icon}}",style="margin-right:2px")
+                    style="margin-left:5px")
+                        i(ng-if="btn.icon",ng-attr-class="{{btn.icon}}",style="margin-right:2px")
                         |{{btn.title}}
             tr(ng-show="!theRows || theRows.length === 0")
                 td(ng-attr-colspan="{{options.colspan}}")
@@ -76,7 +78,7 @@
                     last-text="{{options.pagination.lastText}}",
                     num-pages="options.pagination.numPages",
                     ng-change="options.pagination.action(options.pagination.current)")
-                    div.pull-right.text-muted.text-right(style="margin:5px 10px 5px 0;line-height:1.4")
+                    div.pull-right.text-muted.text-right(style="margin:10px 10px 5px 0;line-height:1.4")
                         | 共 {{options.pagination.totalItems}} 条 / 每页:
                         select(ng-model="options.pagination.itemsPerPage",
                         ng-change="init()",

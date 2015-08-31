@@ -40,3 +40,4 @@ angular.module('kai').directive('kaiValidator', function() {
         }
     };
 });
+
